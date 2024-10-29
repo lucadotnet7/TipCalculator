@@ -1,13 +1,17 @@
-import { menuItems } from "../../data/db"
-import Item from "./Item"
-import { useOrder } from "../../hooks/useOrder";
+import { menuItems } from "../../data/db";
+import Item from "./Item";
+import Title from "../shared/Title";
+import { MenuItem } from "../../types";
 
-function Menu() {
-    const { addItem } = useOrder();
+type MenuType = {
+    addItem: (item: MenuItem) => void
+}
 
+function Menu({addItem}: MenuType) {
     return (
-    <div className="p-5">
-            <h2 className="text-4xl font-black">Menú</h2>
+    <div className="p-5 border rounded-lg border-slate-300">
+            <Title value={'Menu'} />
+
             <div className="space-y-3 mt-10">
             {
                 menuItems.map(item => (

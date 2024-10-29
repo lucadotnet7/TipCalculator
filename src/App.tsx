@@ -1,17 +1,22 @@
-import Menu from "./components/menu/menu"
-import Header from "./components/shared/Header"
+import Consume from "./components/consume/Consume";
+import Menu from "./components/menu/Menu";
+import Header from "./components/shared/Header";
+import { useOrder } from "./hooks/useOrder";
 
 function App() {
+  const { order, deleteItem, addItem } = useOrder();
+  
   return (
     <>
       <Header />
 
-      <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">
-        <Menu />
+      <main className="max-w-7xl mx-auto py-20 grid gap-4 md:grid-cols-2">
+        <Menu 
+          addItem={addItem} />
 
-        <div>
-          <h2 className="text-4xl font-black">Consumo</h2>
-        </div>
+        <Consume
+          order={order}
+          deleteItem={deleteItem} />
       </main>
     </>
   )
