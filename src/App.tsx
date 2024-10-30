@@ -4,7 +4,7 @@ import Header from "./components/shared/Header";
 import { useOrder } from "./hooks/useOrder";
 
 function App() {
-  const { order, deleteItem, addItem } = useOrder();
+  const { order, tip, setTip, deleteItem, addItem, placeOrder } = useOrder();
   
   return (
     <>
@@ -16,7 +16,10 @@ function App() {
 
         <Consume
           order={order}
-          deleteItem={deleteItem} />
+          deleteItem={deleteItem}
+          setTip={setTip}
+          tip={tip}
+          placeOrder={placeOrder} />
       </main>
     </>
   )
